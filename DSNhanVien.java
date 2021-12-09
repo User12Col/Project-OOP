@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  *
  * @author HP ADMIN
@@ -151,12 +153,22 @@ public class DSNhanVien {
     }
     public void xoaNV()
     {
-        System.out.println("Nhap ma nhan vien can xoa: ");
-        String a=sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma nhan vien can xoa: ");
+            a=sc.nextLine();
+            String check="^NV[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key= dsnv[i].getMaNV();
-            if( key.contains(a)== true)
+            if( key.contentEquals(a)== true)
             {
                 for(int j=i;j<n-1;j++)
                 {
@@ -170,12 +182,22 @@ public class DSNhanVien {
     }
     public void suaNV()
     {
-        System.out.println("Nhap ma nhan vien muon sua: ");
-        String a = sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma nhan vien can sua: ");
+            a=sc.nextLine();
+            String check="^NV[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key= dsnv[i].getMaNV();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
                 System.out.println("Nhap thong tin nhan vien");
                 NhanVien nv= new NhanVien();
@@ -187,12 +209,25 @@ public class DSNhanVien {
     }
     public void timkiemNV()
     {
-        System.out.println("Nhap ma nhan vien muon tim kiem: ");
-        String a = sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma nhan vien can tim: ");
+            a=sc.nextLine();
+            String check="^NV[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
+            System.out.println("================================================");
+            System.out.printf("%-10s %-10s %-20s %-30s %-15s %-10s %-15s %-20s\n"
+                ,"STT","Ma NV","Ho Ten","Dia Chi","So dien thoai","Tuoi","Chuc vu","Luong");
             String key= dsnv[i].getMaNV();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
                 dsnv[i].xuatNV();
                 break;

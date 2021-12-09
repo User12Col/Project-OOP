@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -40,6 +42,7 @@ public class DSSanPham {
             String line =null;
             try 
             {
+                
                 n=demSP();
                 dssp=new SanPham[n];
                 int i=0;
@@ -49,6 +52,7 @@ public class DSSanPham {
                     dssp[i].xuly(line);
                     i++;
                 }
+                
             } 
             catch (IOException ex) 
             {
@@ -107,19 +111,19 @@ public class DSSanPham {
                     } 
                     catch (IOException ex) 
                     {
-                        Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } 
                 catch (UnsupportedEncodingException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             System.out.println("Cap nhat du lieu thanh cong !!!");
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally
         {
@@ -131,7 +135,7 @@ public class DSSanPham {
                 } 
                 catch (IOException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -151,12 +155,20 @@ public class DSSanPham {
     }
     public void xoaSP()
     {
-        System.out.println("Nhap ma san pham can xoa: ");
-        String a=sc.nextLine();
+        Matcher c;
+        String a;
+        do{
+            System.out.println("Nhap ma san pham can xoa: ");
+            a=sc.nextLine();
+            String check="^SP[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(a);
+        }
+        while(c.find()==false);
         for(int i=0;i<n;i++)
         {
             String key= dssp[i].getMaSP();
-            if( key.contains(a)== true)
+            if( key.contentEquals(a)== true)
             {
                 for(int j=i;j<n-1;j++)
                 {
@@ -170,12 +182,21 @@ public class DSSanPham {
     }
     public void suaSP()
     {
-        System.out.println("Nhap ma san pham can sua: ");
-        String a= sc.nextLine();
+        Matcher c;
+        String a;
+        do{
+            System.out.println("Nhap ma san pham can sua: ");
+            a=sc.nextLine();
+            String check="^SP[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key=dssp[i].getMaSP();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
                 SanPham sp=new SanPham();
                 System.out.println("Nhap thong tin san pham");
@@ -187,13 +208,25 @@ public class DSSanPham {
     }
     public void timkiemSp()
     {
-        System.out.println("Nhap ma san pham can tim: ");
-        String a= sc.nextLine();
+        Matcher c;
+        String a;
+        do{
+            System.out.println("Nhap ma san pham can tim: ");
+            a=sc.nextLine();
+            String check="^SP[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key = dssp[i].getMaSP();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
+                System.out.println("====================================================");
+                System.out.printf("%-10s %-15s %-25s %-10s %-10s %-15s %-20s\n"
+                    ,"STT","Ma san pham","Ten san pham","Mo ta","Bao hanh","Nha san xuat","So luong hien co");
                 dssp[i].xuatSP();
                 break;
             }

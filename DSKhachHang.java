@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -53,12 +55,12 @@ public class DSKhachHang {
             } 
             catch (IOException ex) 
             {
-                Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSKhachHang.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSKhachHang.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public int demKH()
@@ -81,12 +83,12 @@ public class DSKhachHang {
             } 
             catch (IOException ex) 
             {
-                Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSKhachHang.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSKhachHang.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dem;
     }
@@ -108,19 +110,19 @@ public class DSKhachHang {
                     } 
                     catch (IOException ex) 
                     {
-                        Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(DSKhachHang.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } 
                 catch (UnsupportedEncodingException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSKhachHang.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             System.out.println("Cap nhat du lieu thanh cong !!!");
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSKhachHang.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally
         {
@@ -132,7 +134,7 @@ public class DSKhachHang {
                 } 
                 catch (IOException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSKhachHang.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -152,12 +154,22 @@ public class DSKhachHang {
     }
     public void suaKH()
     {
-        System.out.println("Nhap ma khach hang can sua: ");
-        String a= sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma khach hang can sua: ");
+            a=sc.nextLine();
+            String check="^KH[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key=dskh[i].getMaKH();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
                 KhachHang kh=new KhachHang();
                 System.out.println("Nhap thong tin khach hang");
@@ -169,13 +181,26 @@ public class DSKhachHang {
     }
     public void timkiemKH()
     {
-        System.out.println("Nhap ma khach hang can tim: ");
-        String a = sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma khach hang can tim: ");
+            a=sc.nextLine();
+            String check="^KH[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key = dskh[i].getMaKH();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
+                System.out.println("====================================================");
+                System.out.printf("%-10s %-10s %-25s %-40s %-15s\n"
+                    ,"STT","Ma KH","Ho ten","Dia chi","So dien thoai");
                 dskh[i].xuatKH();
                 break;
             }
@@ -183,12 +208,22 @@ public class DSKhachHang {
     }
     public void xoaKH()
     {
-        System.out.println("Nhap ma khach hang can xoa: ");
-        String a=sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma khach hang can xoa: ");
+            a=sc.nextLine();
+            String check="^KH[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key= dskh[i].getMaKH();
-            if( key.contains(a)== true)
+            if( key.contentEquals(a)== true)
             {
                 for(int j=i;j<n-1;j++)
                 {

@@ -5,6 +5,8 @@
 package QuanLy;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -28,13 +30,38 @@ public class KhachHang {
     }
     public void nhapKH()
     {
-        System.out.println("Nhap ma nv: ");
-        maKH=sc.nextLine();
-        System.out.println("Nhap ho ten: ");
-        hoten=sc.nextLine();
-        System.out.println("Nhap so dien thoai: ");
-        sdt=sc.nextLine();
-        System.out.println("Nhap dia chi: ");
+        Matcher c;
+        do
+        {
+            System.out.println("Nhap ma khach hang: ");
+            maKH=sc.nextLine();
+            String check="^KH[0-9]{2}$";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(maKH);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap ho ten khach hang: ");
+            hoten=sc.nextLine();
+            String check="[^0-9]";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(hoten);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap so dien thoai khach hang: ");
+            sdt=sc.nextLine();
+            String check="^0[0-9]{9}$";
+            Pattern b = Pattern.compile(check);
+            c= b.matcher(sdt);
+        }
+        while(c.find()==false);
+        
+        System.out.println("Nhap dia chi khach hang: ");
         diachi=sc.nextLine();
     }
 

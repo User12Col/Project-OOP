@@ -5,6 +5,8 @@
 package QuanLy;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -80,16 +82,52 @@ public class PhieuGiaoHang {
     }
     public void nhapPGH()
     {
-        System.out.println("Nhap ma phieu giao hang: ");
-        maPGH=sc.nextLine();
-        System.out.println("Nhap ma hoa don: ");
-        maHD=sc.nextLine();
-        System.out.println("Nhap trang thai giao hang: ");
-        tinhtrang=sc.nextLine();
-        System.out.println("Nhap ngay bat dau giao: ");
-        ngaybd=sc.nextLine();
-        System.out.println("Nhap ngay giao thanh cong(Nhap null neu don hang giao chua xong): ");
-        ngaykt=sc.nextLine();
+        Matcher c;
+        do{
+            System.out.println("Nhap ma phieu giao hang: ");
+            maPGH=sc.nextLine();
+            String check="^PGH[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(maPGH);
+        }
+        while(c.find()==false);
+        
+        
+        do{
+            System.out.println("Nhap ma hoa don: ");
+            maHD=sc.nextLine();
+            String check="^HD[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(maHD);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap trang thai giao hang: ");
+            tinhtrang=sc.nextLine();
+        }
+        while(tinhtrang.contentEquals("Yet")==false && tinhtrang.contentEquals("On Progress")==false);
+        
+        do
+        {
+            System.out.println("Nhap ngay bat dau giao: ");
+            ngaybd=sc.nextLine();
+            String check="^[0-9]{2}/[0-9]{2}/[0-9]{4}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(ngaybd);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap ngay giao thanh cong(Nhap 00/00/0000 neu don hang giao chua xong): ");
+            ngaykt=sc.nextLine();
+            String check="^[0-9]{2}/[0-9]{2}/[0-9]{4}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(ngaykt);
+        }
+        while(c.find()==false);
     }
     public void xuatPGH()
     {

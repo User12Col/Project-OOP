@@ -5,6 +5,8 @@
 package QuanLy;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -21,7 +23,7 @@ public class HoaDon {
     private String nvlaphd;
     private String maSP;
     private String tenSP;
-    private int soluong;
+    private String soluong;
     private String giatien;
     public HoaDon()
     {
@@ -33,110 +35,153 @@ public class HoaDon {
         nvlaphd=null;
         maSP=null;
         tenSP=null;
-        soluong=0;
+        soluong=null;
         giatien=null;
     }
     public void nhapHD()
     {
-        System.out.println("Nhap ma hoa don: ");
-        maHD=sc.nextLine();
-        System.out.println("Nhap ten khach hang: ");
-        tenkh=sc.nextLine();
+        Matcher c;
+        do
+        {
+            System.out.println("Nhap ma hoa don: ");
+            maHD=sc.nextLine();
+            String check="^HD[0-9]{2}$";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(maHD);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap ho ten khach hang: ");
+            tenkh=sc.nextLine();
+            String check="[^0-9]";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(tenkh);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap dia chi khach hang: ");
         diachikh=sc.nextLine();
-        System.out.println("Nhap ngay lap hoa don(dd/mm/yyyy): ");
-        ngaylaphd=sc.nextLine();
-        System.out.println("Nhap ten nhan vien lap hoa don: ");
-        nvlaphd=sc.nextLine();
-        System.out.println("Nhap ma san pham");
-        maSP=sc.nextLine();
+        
+        do
+        {
+            System.out.println("Nhap ngay lap hoa don: ");
+            ngaylaphd=sc.nextLine();
+            String check="^[0-9]{2}/[0-9]{2}/[0-9]{4}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(ngaylaphd);
+        }
+        while(c.find()==false);
+        
+         do
+        {
+            System.out.println("Nhap ten nhan vien lap hoa don: ");
+            nvlaphd=sc.nextLine();
+            String check="[^0-9]";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(nvlaphd);
+        }
+        while(c.find()==false);
+         
+        do{
+            System.out.println("Nhap ma SP: ");
+            maSP=sc.nextLine();
+            String check="^SP[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(maSP);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap ten san pham: ");
         tenSP=sc.nextLine();
-        System.out.println("Nhap so luong san pham: ");
-        soluong=sc.nextInt();
+        
+        do{
+            System.out.println("Nhap so luong san pham: ");
+            soluong=sc.nextLine();
+            String check="[0-9]";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(soluong);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap gia tien: ");
         giatien=sc.nextLine();
     }
 
-    public String getMaHD() 
-    {
+    public String getMaHD() {
         return maHD;
     }
 
-    public void setMaHD(String maHD) 
-    {
+    public void setMaHD(String maHD) {
         this.maHD = maHD;
     }
 
-    public String getTenkh()
-    {
+    public String getTenkh() {
         return tenkh;
     }
 
-    public void setTenkh(String tenkh)
-    {
+    public void setTenkh(String tenkh) {
         this.tenkh = tenkh;
     }
 
-    public String getDiachikh() 
-    {
+    public String getDiachikh() {
         return diachikh;
     }
 
-    public void setDiachikh(String diachikh) 
-    {
+    public void setDiachikh(String diachikh) {
         this.diachikh = diachikh;
     }
 
-    public String getNgaylaphd() 
-    {
+    public String getNgaylaphd() {
         return ngaylaphd;
     }
 
-    public void setNgaylaphd(String ngaylaphd) 
-    {
+    public void setNgaylaphd(String ngaylaphd) {
         this.ngaylaphd = ngaylaphd;
     }
 
-    public String getMaSP() 
-    {
+    public String getNvlaphd() {
+        return nvlaphd;
+    }
+
+    public void setNvlaphd(String nvlaphd) {
+        this.nvlaphd = nvlaphd;
+    }
+
+    public String getMaSP() {
         return maSP;
     }
 
-    public void setMaSP(String maSP) 
-    {
+    public void setMaSP(String maSP) {
         this.maSP = maSP;
     }
 
-    public String getTenSP() 
-    {
+    public String getTenSP() {
         return tenSP;
     }
 
-    public void setTenSP(String tenSP) 
-    {
+    public void setTenSP(String tenSP) {
         this.tenSP = tenSP;
     }
 
-    public int getSoluong() 
-    {
+    public String getSoluong() {
         return soluong;
     }
 
-    public void setSoluong(int soluong) 
-    {
+    public void setSoluong(String soluong) {
         this.soluong = soluong;
     }
 
-    public String getGiatien() 
-    {
+    public String getGiatien() {
         return giatien;
     }
 
-    public void setGiatien(String giatien) 
-    {
+    public void setGiatien(String giatien) {
         this.giatien = giatien;
     }
+
+    
     public void xuatHD()
     {
         System.out.printf("%-5s %-15s %-25s %-36s %-20s %-25s %-15s %-25s %-10s %-20s\n"
@@ -152,7 +197,7 @@ public class HoaDon {
         nvlaphd=chrt[4];
         maSP=chrt[5];
         tenSP=chrt[6];
-        soluong=Integer.valueOf(chrt[7]);
+        soluong=chrt[7];
         giatien=chrt[8];
     }
     public String xylyLuu()

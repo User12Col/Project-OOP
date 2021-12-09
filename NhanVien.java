@@ -4,6 +4,8 @@
  */
 package QuanLy;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  *
  * @author HP ADMIN
@@ -32,31 +34,99 @@ public class NhanVien {
     }
     public void nhapNV()
     {
-        System.out.println("Nhap ma nv: ");
-        maNV=sc.nextLine();
-        System.out.println("Nhap ho ten: ");
-        hoten=sc.nextLine();
+        Matcher c;
+        do
+        {
+            System.out.println("Nhap ma nhan vien: ");
+            maNV=sc.nextLine();
+            String check="^NV[0-9]{2}$";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(maNV);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap ho ten nhan vien: ");
+            hoten=sc.nextLine();
+            String check="[^0-9]";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(hoten);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap dia chi: ");
         diachi=sc.nextLine();
-        System.out.println("Nhap tuoi: ");
-        tuoi=sc.nextLine();
-        System.out.println("Nhap so dien thoai: ");
-        sdt=sc.nextLine();
+        
+        do
+        {
+            System.out.println("Nhap tuoi: ");
+            tuoi=sc.nextLine();
+            String check="^[0-9]{2}$";
+            Pattern a=Pattern.compile(check);
+            c= a.matcher(tuoi);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap so dien thoai: ");
+            sdt=sc.nextLine();
+            String check="^0[0-9]{9}$";
+            Pattern b = Pattern.compile(check);
+            c= b.matcher(sdt);
+        }
+        while(c.find()==false);
     }
     public void nhapnv()
     {
-        System.out.println("Nhap ma nv: ");
-        maNV=sc.nextLine();
-        System.out.println("Nhap ho ten: ");
-        hoten=sc.nextLine();
+        Matcher c;
+        do
+        {
+            System.out.println("Nhap ma nv: ");
+            maNV=sc.nextLine();
+            String check="^NV[0-9]{2}$";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(maNV);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap ho ten: ");
+            hoten=sc.nextLine();
+            String check="[^0-9]";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(hoten);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap dia chi: ");
         diachi=sc.nextLine();
-        System.out.println("Nhap tuoi: ");
-        tuoi=sc.nextLine();
-        System.out.println("Nhap so dien thoai: ");
-        sdt=sc.nextLine();
+        
+        do
+        {
+            System.out.println("Nhap tuoi: ");
+            tuoi=sc.nextLine();
+            String check="^[0-9]{2}$";
+            Pattern a=Pattern.compile(check);
+            c= a.matcher(tuoi);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap so dien thoai: ");
+            sdt=sc.nextLine();
+            String check="^0[0-9]{9}$";
+            Pattern b = Pattern.compile(check);
+            c= b.matcher(sdt);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap chuc vu: ");
         chucvu=sc.nextLine();
+        
         System.out.println("Nhap muc luong: ");
         luong=sc.nextLine();
     }

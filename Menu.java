@@ -309,6 +309,7 @@ public class Menu {
             {
                 case 1:
                     ds.xuatDSSP();
+                    
                     break;
                 case 2:
                     SanPham sp = new SanPham();
@@ -362,7 +363,7 @@ public class Menu {
                     dspbh.suaPBH();
                     break;
                 case 5:
-                    dspbh.xuatDSPBH();
+                    dspbh.timkiemPBH();
                     break;
             }
         }

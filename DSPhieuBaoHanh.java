@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -50,12 +52,12 @@ public class DSPhieuBaoHanh {
             } 
             catch (IOException ex) 
             {
-                Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSPhieuBaoHanh.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSPhieuBaoHanh.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dem;
     }
@@ -81,12 +83,12 @@ public class DSPhieuBaoHanh {
             } 
             catch (IOException ex) 
             {
-                Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSPhieuBaoHanh.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSPhieuBaoHanh.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void capNhatDSPBH()
@@ -107,19 +109,19 @@ public class DSPhieuBaoHanh {
                     } 
                     catch (IOException ex) 
                     {
-                        Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(DSPhieuBaoHanh.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } 
                 catch (UnsupportedEncodingException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSPhieuBaoHanh.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             System.out.println("Cap nhat du lieu thanh cong !!!");
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSPhieuBaoHanh.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally
         {
@@ -131,7 +133,7 @@ public class DSPhieuBaoHanh {
                 } 
                 catch (IOException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSPhieuBaoHanh.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -151,12 +153,22 @@ public class DSPhieuBaoHanh {
     }
     public void xoaPHB()
     {
-        System.out.println("Nhap ma phieu bao hanh can xoa: ");
-        String a=sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma phieu bao hanh can xoa: ");
+            a=sc.nextLine();
+            String check="^PBH[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key= dspbh[i].getMaPBH();
-            if( key.contains(a)== true)
+            if( key.contentEquals(a)== true)
             {
                 for(int j=i;j<n-1;j++)
                 {
@@ -170,12 +182,22 @@ public class DSPhieuBaoHanh {
     }
     public void suaPBH()
     {
-        System.out.println("Nhap ma phieu bao hanh can sua: ");
-        String a= sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma phieu bao hanh can sua: ");
+            a=sc.nextLine();
+            String check="^PBH[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key=dspbh[i].getMaPBH();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
                 PhieuBaoHanh pbh=new PhieuBaoHanh();
                 System.out.println("Nhap thong tin phieu bao hanh");
@@ -187,13 +209,26 @@ public class DSPhieuBaoHanh {
     }
     public void timkiemPBH()
     {
-        System.out.println("Nhap ma phieu bao hanh can tim: ");
-        String a= sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma phieu bao hanh can tim: ");
+            a=sc.nextLine();
+            String check="^PBH[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key = dspbh[i].getMaPBH();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
+                System.out.println("====================================================");
+                System.out.printf("%-10s %-20s %-15s %-30s %-20s %-20s\n"
+                    ,"STT","Ma phieu bao hanh","Ma khach hang","Dia chi bao hanh","Thoi han bao hanh","Tinh trang bao hanh");
                 dspbh[i].xuatPBH();
                 break;
             }

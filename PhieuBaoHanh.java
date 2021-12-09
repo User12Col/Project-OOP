@@ -4,6 +4,8 @@
  */
 package QuanLy;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  *
  * @author HP ADMIN
@@ -59,6 +61,7 @@ public class PhieuBaoHanh {
 
     public String getThoihanBH() 
     {
+        
         return thoihanBH;
     }
 
@@ -76,16 +79,43 @@ public class PhieuBaoHanh {
     {
         this.tinhtrangBH = tinhtrangBH;
     }
+
+    
     public void nhapPBH()
     {
-        System.out.println("Nhap ma phieu bao hanh: ");
-        maPBH=sc.nextLine();
-        System.out.println("Nhap ma khach hang: ");
-        maKH=sc.nextLine();
+        Matcher c;
+        do
+        {
+            System.out.println("Nhap ma phieu bao hanh: ");
+            maPBH=sc.nextLine();
+            String check="^PBH[0-9]{2}$"; 
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(maPBH);
+        }
+        while(c.find()==false);
+        
+        do
+        {
+            System.out.println("Nhap ma khach hang: ");
+            maKH=sc.nextLine();
+            String check="^KH[0-9]{2}$";
+            Pattern a= Pattern.compile(check);
+            c= a.matcher(maKH);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap dia chi bao hanh: ");
         diachiBH=sc.nextLine();
-        System.out.println("Nhap thoi han bao hanh: ");
-        thoihanBH=sc.nextLine();
+        
+        do{
+            System.out.println("Thoi gian bao hanh: ");
+            thoihanBH=sc.nextLine();
+            String check="^[0-9]+\\s+years$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(thoihanBH);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap tinh trang bao hanh: ");
         tinhtrangBH=sc.nextLine();
         

@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -50,12 +52,12 @@ public class DSPhieuGiaoHang {
             } 
             catch (IOException ex) 
             {
-                Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSPhieuGiaoHang.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSPhieuGiaoHang.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dem;
     }
@@ -81,12 +83,12 @@ public class DSPhieuGiaoHang {
             } 
             catch (IOException ex) 
             {
-                Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSPhieuGiaoHang.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSPhieuGiaoHang.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void capNhatDSPGH()
@@ -107,19 +109,19 @@ public class DSPhieuGiaoHang {
                     } 
                     catch (IOException ex) 
                     {
-                        Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(DSPhieuGiaoHang.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } 
                 catch (UnsupportedEncodingException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSPhieuGiaoHang.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             System.out.println("Cap nhat du lieu thanh cong !!!");
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSPhieuGiaoHang.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally
         {
@@ -131,7 +133,7 @@ public class DSPhieuGiaoHang {
                 } 
                 catch (IOException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSPhieuGiaoHang.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -151,12 +153,21 @@ public class DSPhieuGiaoHang {
     }
     public void xoaPGH()
     {
-        System.out.println("Nhap ma phieu giao hang can xoa: ");
-        String a=sc.nextLine();
+        Matcher c;
+        String a;
+        do{
+            System.out.println("Nhap ma phieu giao hang can xoa: ");
+            a=sc.nextLine();
+            String check="^PGH[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key= dspgh[i].getMaPGH();
-            if( key.contains(a)== true)
+            if( key.contentEquals(a)== true)
             {
                 for(int j=i;j<n-1;j++)
                 {
@@ -170,12 +181,21 @@ public class DSPhieuGiaoHang {
     }
     public void suaPGH()
     {
-        System.out.println("Nhap ma phieu giao hang can sua: ");
-        String a= sc.nextLine();
+        Matcher c;
+        String a;
+        do{
+            System.out.println("Nhap ma phieu giao hang can sua: ");
+            a=sc.nextLine();
+            String check="^PGH[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key=dspgh[i].getMaPGH();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
                 PhieuGiaoHang pgh=new PhieuGiaoHang();
                 System.out.println("Nhap thong tin phieu giao hang");
@@ -187,13 +207,25 @@ public class DSPhieuGiaoHang {
     }
     public void timkiemPGH()
     {
-        System.out.println("Nhap ma phieu dat hang can tim: ");
-        String a= sc.nextLine();
+        Matcher c;
+        String a;
+        do{
+            System.out.println("Nhap ma phieu giao hang can tim kiem: ");
+            a=sc.nextLine();
+            String check="^PGH[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key = dspgh[i].getMaPGH();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
+                System.out.println("============================================================");
+                System.out.printf("%-5s %-20s %-15s %-25s %-15s %-15s\n"
+                    ,"STT","Ma phieu giao hang","Ma hoa don","Tinh trang giao hang","Ngay bat dau","Ngay ket thuc");
                 dspgh[i].xuatPGH();
                 break;
             }

@@ -5,6 +5,8 @@
 package QuanLy;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -12,8 +14,8 @@ import java.util.Scanner;
  */
 public class SanPham {
     Scanner sc=new Scanner(System.in);
-    static int dem=1;
-    private int stt;
+    static int dem=0;
+    private int stt=1;
     private String maSP;
     private String tensp;
     private String mota;
@@ -32,18 +34,45 @@ public class SanPham {
     }
     public void nhapSP()
     {
-        System.out.println("Nhap ma SP: ");
-        maSP=sc.nextLine();
-        System.out.println("Nhap ten SP: ");
+        
+        Matcher c;
+        do{
+            System.out.println("Nhap ma san pham: ");
+            maSP=sc.nextLine();
+            String check="^SP[0-9]{2}$";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(maSP);
+        }
+        while(c.find()==false);
+        
+        System.out.println("Nhap ten san pham: ");
         tensp=sc.nextLine();
+        
         System.out.println("Mo ta san pham(moi, cu, 99%..v...v..): ");
         mota=sc.nextLine();
-        System.out.println("Thoi gian bao hanh: ");
-        baohanh=sc.nextLine();
+        
+        
+        do{
+            System.out.println("Thoi gian bao hanh: ");
+            baohanh=sc.nextLine();
+            String check="[0-9]+\\s+years";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(baohanh);
+        }
+        while(c.find()==false);
+        
         System.out.println("Nhap ten nha san xuat: ");
         nsx=sc.nextLine();
-        System.out.println("Nhap so luong hien co: ");
-        slhienco=sc.nextLine();
+        
+        do{
+            System.out.println("Nhap so luong hien co: ");
+            slhienco=sc.nextLine();
+            String check="[0-9]";
+            Pattern b = Pattern.compile(check);
+            c = b.matcher(slhienco);
+        }
+        while(c.find()==false);
+        
     }
 
     public static int getDem() 
@@ -115,6 +144,17 @@ public class SanPham {
     {
         this.slhienco = slhienco;
     }
+
+    public int getStt() 
+    {
+        return stt;
+    }
+
+    public void setStt(int stt) 
+    {
+        this.stt = stt;
+    }
+    
     public void xuatSP()
     {
         System.out.printf("%-10s %-15s %-25s %-10s %-10s %-15s %-20s\n"

@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -50,12 +52,12 @@ public class DSHoaDon {
             } 
             catch (IOException ex) 
             {
-                Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSHoaDon.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
         return dem;
     }
@@ -81,12 +83,12 @@ public class DSHoaDon {
             } 
             catch (IOException ex) 
             {
-                Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DSHoaDon.class.getName()).log(Level.SEVERE, null, ex);
             }
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSSanPham.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void capNhatDSHD()
@@ -107,19 +109,19 @@ public class DSHoaDon {
                     } 
                     catch (IOException ex) 
                     {
-                        Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(DSHoaDon.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } 
                 catch (UnsupportedEncodingException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSHoaDon.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             System.out.println("Cap nhat du lieu thanh cong !!!");
         } 
         catch (FileNotFoundException ex) 
         {
-            Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DSHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally
         {
@@ -131,7 +133,7 @@ public class DSHoaDon {
                 } 
                 catch (IOException ex) 
                 {
-                    Logger.getLogger(DSNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DSHoaDon.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -151,12 +153,22 @@ public class DSHoaDon {
     }
     public void xoaHD()
     {
-        System.out.println("Nhap ma hoa don can xoa: ");
-        String a=sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma hoa don can xoa: ");
+            a=sc.nextLine();
+            String check="^HD[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key= dshd[i].getMaHD();
-            if( key.contains(a)== true)
+            if( key.contentEquals(a) == true)
             {
                 for(int j=i;j<n-1;j++)
                 {
@@ -170,12 +182,22 @@ public class DSHoaDon {
     }
     public void suaHD()
     {
-        System.out.println("Nhap ma hoa don can sua: ");
-        String a= sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma hoa don can sua: ");
+            a=sc.nextLine();
+            String check="^HD[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key=dshd[i].getMaHD();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
                 HoaDon hd=new HoaDon();
                 System.out.println("Nhap thong tin hoa don");
@@ -187,13 +209,26 @@ public class DSHoaDon {
     }
     public void timkiemHD()
     {
-        System.out.println("Nhap ma hoa don can tim kiem: ");
-        String a = sc.nextLine();
+        Matcher c;
+        String a;
+        do
+        {
+            System.out.println("Nhap ma hoa don can tim kiem: ");
+            a=sc.nextLine();
+            String check="^HD[0-9]{2}$";
+            Pattern b= Pattern.compile(check);
+            c= b.matcher(a);
+        }
+        while(c.find()==false);
+        
         for(int i=0;i<n;i++)
         {
             String key = dshd[i].getMaHD();
-            if(key.contains(a)==true)
+            if(key.contentEquals(a)==true)
             {
+                System.out.println("====================================================================================");
+                System.out.printf("%-5s %-15s %-25s %-36s %-20s %-25s %-15s %-25s %-10s %-20s\n"
+                    ,"STT","Ma hoa don","Ten khach hang","Dia chi khach hang","Ngay lap hoa don","Nhan vien lap hoa don","Ma san pham","Ten san pham","So luong","Gia tien");
                 dshd[i].xuatHD();
                 break;
             }
