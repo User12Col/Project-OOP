@@ -140,6 +140,16 @@ public class NhanVien {
         this.maNV = maNV;
     }
 
+    public static int getDem() 
+    {
+        return dem;
+    }
+
+    public static void setDem(int dem) 
+    {
+        NhanVien.dem = dem;
+    }
+
     public String getHoten() 
     {
         return hoten;

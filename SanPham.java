@@ -14,8 +14,8 @@ import java.util.regex.Pattern;
  */
 public class SanPham {
     Scanner sc=new Scanner(System.in);
-    static int dem=0;
-    private int stt=1;
+    static int dem=1;
+    private int stt;
     private String maSP;
     private String tensp;
     private String mota;
@@ -67,7 +67,7 @@ public class SanPham {
         do{
             System.out.println("Nhap so luong hien co: ");
             slhienco=sc.nextLine();
-            String check="[0-9]";
+            String check="^[0-9]{1,5}$";
             Pattern b = Pattern.compile(check);
             c = b.matcher(slhienco);
         }

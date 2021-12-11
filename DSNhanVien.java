@@ -150,6 +150,7 @@ public class DSNhanVien {
         }
         n++;
         capNhatDSNV();
+        NhanVien.setDem(1);
     }
     public void xoaNV()
     {
@@ -179,6 +180,7 @@ public class DSNhanVien {
             }
         }
         capNhatDSNV();
+        NhanVien.setDem(1);
     }
     public void suaNV()
     {
@@ -206,6 +208,7 @@ public class DSNhanVien {
             }
         }
         capNhatDSNV();
+        NhanVien.setDem(1);
     }
     public void timkiemNV()
     {
@@ -223,16 +226,17 @@ public class DSNhanVien {
         
         for(int i=0;i<n;i++)
         {
-            System.out.println("================================================");
-            System.out.printf("%-10s %-10s %-20s %-30s %-15s %-10s %-15s %-20s\n"
-                ,"STT","Ma NV","Ho Ten","Dia Chi","So dien thoai","Tuoi","Chuc vu","Luong");
             String key= dsnv[i].getMaNV();
             if(key.contentEquals(a)==true)
             {
+                System.out.println("================================================");
+                    System.out.printf("%-10s %-10s %-20s %-30s %-15s %-10s %-15s %-20s\n"
+                ,"STT","Ma NV","Ho Ten","Dia Chi","So dien thoai","Tuoi","Chuc vu","Luong");
                 dsnv[i].xuatNV();
                 break;
             }
         }
+        NhanVien.setDem(1);
     }
     public void xuatDSNV()
     {
@@ -242,6 +246,7 @@ public class DSNhanVien {
         {
             dsnv[i].xuatNV();
         }
+        NhanVien.setDem(1);
     }
     
     

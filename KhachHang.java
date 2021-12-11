@@ -75,6 +75,16 @@ public class KhachHang {
         this.maKH = maKH;
     }
 
+    public static int getDem() 
+    {
+        return dem;
+    }
+
+    public static void setDem(int dem) 
+    {
+        KhachHang.dem = dem;
+    }
+    
     public String getHoten() 
     {
         return hoten;

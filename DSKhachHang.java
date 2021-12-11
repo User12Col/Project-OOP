@@ -151,6 +151,7 @@ public class DSKhachHang {
         }
         n++;
         capNhatDSKH();
+        KhachHang.setDem(1);
     }
     public void suaKH()
     {
@@ -178,6 +179,7 @@ public class DSKhachHang {
             }
         }
         capNhatDSKH();
+        KhachHang.setDem(1);
     }
     public void timkiemKH()
     {
@@ -205,6 +207,7 @@ public class DSKhachHang {
                 break;
             }
         }
+        KhachHang.setDem(1);
     }
     public void xoaKH()
     {
@@ -234,6 +237,7 @@ public class DSKhachHang {
             }
         }
         capNhatDSKH();
+        KhachHang.setDem(1);
     }
     public void xuatDSKH()
     {
@@ -244,5 +248,6 @@ public class DSKhachHang {
         {
             dskh[i].xuatKH();
         }
+        KhachHang.setDem(1);
     }
 }

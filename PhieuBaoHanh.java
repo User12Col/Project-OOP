@@ -44,6 +44,16 @@ public class PhieuBaoHanh {
         return maKH;
     }
 
+    public static int getDem() 
+    {
+        return dem;
+    }
+
+    public static void setDem(int dem) 
+    {
+        PhieuBaoHanh.dem = dem;
+    }
+
     public void setMaKH(String maKH) 
     {
         this.maKH = maKH;

@@ -38,6 +38,7 @@ public class HoaDon {
         soluong=null;
         giatien=null;
     }
+    
     public void nhapHD()
     {
         Matcher c;
@@ -99,7 +100,7 @@ public class HoaDon {
         do{
             System.out.println("Nhap so luong san pham: ");
             soluong=sc.nextLine();
-            String check="[0-9]";
+            String check="^[0-9]{1,5}$";
             Pattern b = Pattern.compile(check);
             c = b.matcher(soluong);
         }
@@ -109,75 +110,103 @@ public class HoaDon {
         giatien=sc.nextLine();
     }
 
-    public String getMaHD() {
+    public String getMaHD() 
+    {
         return maHD;
     }
 
-    public void setMaHD(String maHD) {
+    public void setMaHD(String maHD) 
+    {
         this.maHD = maHD;
     }
 
-    public String getTenkh() {
+    public static int getDem() 
+    {
+        return dem;
+    }
+
+    public static void setDem(int dem) 
+    {
+        HoaDon.dem = dem;
+    }
+    
+    public String getTenkh() 
+    {
         return tenkh;
     }
 
-    public void setTenkh(String tenkh) {
+    public void setTenkh(String tenkh) 
+    {
         this.tenkh = tenkh;
     }
 
-    public String getDiachikh() {
+    public String getDiachikh() 
+    {
         return diachikh;
     }
 
-    public void setDiachikh(String diachikh) {
+    public void setDiachikh(String diachikh) 
+    {
         this.diachikh = diachikh;
     }
 
-    public String getNgaylaphd() {
+    public String getNgaylaphd() 
+    {
         return ngaylaphd;
     }
 
-    public void setNgaylaphd(String ngaylaphd) {
+    public void setNgaylaphd(String ngaylaphd) 
+    {
         this.ngaylaphd = ngaylaphd;
     }
 
-    public String getNvlaphd() {
+    public String getNvlaphd() 
+    {
         return nvlaphd;
     }
 
-    public void setNvlaphd(String nvlaphd) {
+    public void setNvlaphd(String nvlaphd) 
+    {
         this.nvlaphd = nvlaphd;
     }
 
-    public String getMaSP() {
+    public String getMaSP() 
+    {
         return maSP;
     }
 
-    public void setMaSP(String maSP) {
+    public void setMaSP(String maSP) 
+    {
         this.maSP = maSP;
     }
 
-    public String getTenSP() {
+    public String getTenSP() 
+    {
         return tenSP;
     }
 
-    public void setTenSP(String tenSP) {
+    public void setTenSP(String tenSP) 
+    {
         this.tenSP = tenSP;
     }
 
-    public String getSoluong() {
+    public String getSoluong() 
+    {
         return soluong;
     }
 
-    public void setSoluong(String soluong) {
+    public void setSoluong(String soluong) 
+    {
         this.soluong = soluong;
     }
 
-    public String getGiatien() {
+    public String getGiatien() 
+    {
         return giatien;
     }
 
-    public void setGiatien(String giatien) {
+    public void setGiatien(String giatien) 
+    {
         this.giatien = giatien;
     }
 

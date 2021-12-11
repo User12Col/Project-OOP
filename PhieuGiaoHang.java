@@ -51,6 +51,16 @@ public class PhieuGiaoHang {
         this.maHD = maHD;
     }
 
+    public static int getDem() 
+    {
+        return dem;
+    }
+
+    public static void setDem(int dem) 
+    {
+        PhieuGiaoHang.dem = dem;
+    }
+
     public String getTinhtrang() 
     {
         return tinhtrang;

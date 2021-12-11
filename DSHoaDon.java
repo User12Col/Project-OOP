@@ -150,6 +150,7 @@ public class DSHoaDon {
         }
         n++;
         capNhatDSHD();
+        HoaDon.setDem(1);
     }
     public void xoaHD()
     {
@@ -179,6 +180,7 @@ public class DSHoaDon {
             }
         }
         capNhatDSHD();
+        HoaDon.setDem(1);
     }
     public void suaHD()
     {
@@ -206,6 +208,7 @@ public class DSHoaDon {
             }
         }
         capNhatDSHD();
+        HoaDon.setDem(1);
     }
     public void timkiemHD()
     {
@@ -233,6 +236,7 @@ public class DSHoaDon {
                 break;
             }
         }
+        HoaDon.setDem(1);
     }
     public void xuatDSHD()
     {
@@ -242,6 +246,8 @@ public class DSHoaDon {
         for(int i=0;i<n;i++)
         {
             dshd[i].xuatHD();
+            
         }
+        HoaDon.setDem(1);
     }
 }

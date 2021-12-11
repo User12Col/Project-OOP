@@ -150,6 +150,7 @@ public class DSPhieuBaoHanh {
         }
         n++;
         capNhatDSPBH();
+        PhieuBaoHanh.setDem(1);
     }
     public void xoaPHB()
     {
@@ -179,6 +180,7 @@ public class DSPhieuBaoHanh {
             }
         }
         capNhatDSPBH();
+        PhieuBaoHanh.setDem(1);
     }
     public void suaPBH()
     {
@@ -206,6 +208,7 @@ public class DSPhieuBaoHanh {
             }
         }
         capNhatDSPBH();
+        PhieuBaoHanh.setDem(1);
     }
     public void timkiemPBH()
     {
@@ -233,7 +236,7 @@ public class DSPhieuBaoHanh {
                 break;
             }
         }
-        
+        PhieuBaoHanh.setDem(1);
     }
     public void xuatDSPBH()
     {
@@ -244,5 +247,6 @@ public class DSPhieuBaoHanh {
         {
             dspbh[i].xuatPBH();
         }
+        PhieuBaoHanh.setDem(1);
     }
 }

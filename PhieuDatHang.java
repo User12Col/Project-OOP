@@ -85,6 +85,16 @@ public class PhieuDatHang {
         this.maSP = maSP;
     }
 
+    public static int getDem() 
+    {
+        return dem;
+    }
+
+    public static void setDem(int dem) 
+    {
+        PhieuDatHang.dem = dem;
+    }
+
     public String getSoluong() 
     {
         return soluong;
@@ -152,7 +162,7 @@ public class PhieuDatHang {
         do{
             System.out.println("Nhap so luong dat: ");
             soluong=sc.nextLine();
-            String check="[0-9]";
+            String check="^[0-9]{1,5}$";
             Pattern b = Pattern.compile(check);
             c = b.matcher(soluong);
         }

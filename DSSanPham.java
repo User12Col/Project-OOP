@@ -152,6 +152,7 @@ public class DSSanPham {
         }
         n++;
         capNhatDSSP();
+        SanPham.setDem(1);
     }
     public void xoaSP()
     {
@@ -179,6 +180,7 @@ public class DSSanPham {
             }
         }
         capNhatDSSP();
+        SanPham.setDem(1);
     }
     public void suaSP()
     {
@@ -205,6 +207,7 @@ public class DSSanPham {
             }
         }
         capNhatDSSP();
+        SanPham.setDem(1);
     }
     public void timkiemSp()
     {
@@ -231,6 +234,7 @@ public class DSSanPham {
                 break;
             }
         }
+        SanPham.setDem(1);
     }
     public void xuatDSSP()
     {
@@ -241,5 +245,6 @@ public class DSSanPham {
         {
             dssp[i].xuatSP();
         }
+        SanPham.setDem(1);
     }
 }

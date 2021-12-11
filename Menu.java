@@ -309,7 +309,6 @@ public class Menu {
             {
                 case 1:
                     ds.xuatDSSP();
-                    
                     break;
                 case 2:
                     SanPham sp = new SanPham();
