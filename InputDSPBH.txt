@@ -1,0 +1,10 @@
+PBH01;KH11;26 Nguyen Duy Hung tp Thu Duc;1 years;90%
+PBH02;KH01;Long Tri, Long My, Tien Giang;3 years;70%
+PBH03;KH02;11 Nguyen Van Linh, Quan 7;1 years;80%
+PBH04;KH03;Huong Lo 14, Q.QN;3 year;90%
+PBH05;KH04;33/5, Tran Binh Trong, P1, Q1;1 years;80%
+PBH06;KH05;06 Vo Thi Sau TP.QN;1 years;70%
+PBH07;KH07;22 Tran Quan Dieu tp.Qn;1 years;90%
+PBH08;KH06;34 Le Ngung tp.Daklak;3 years;80%
+PBH09;KH10;300 Hung Vuong tp.Quang nam;1 years;70%
+PBH10;KH08;987 Nguyen Trai tphcm;3 years;70%

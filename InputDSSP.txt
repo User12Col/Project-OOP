@@ -1,0 +1,15 @@
+SP01;Laptop Acer Nitro 5;new;3 years;Acer;30
+SP02;Laptop GiGaByte Katana;new;2 years;GiGaByte;12
+SP03;Laptop Macbook Pro 2021;new;1 years;Apple;45
+SP04;PC Gaming Asus;new;2 years;Asus;13
+SP06;PC Gia re Dell;like new;3 years;Dell;13
+SP07;Ram 8GB DDR4;new;1 years;Corsair;36
+SP08;Ram 16GB DDR4;new;1 years;Kingston;20
+SP09;Ram 32GB DDR4;new;3 years;Corsair;31
+SP10;SSD 512GB HVME;new;2 years;Asus;28
+SP11;SSD 1TB HVME;new;3 years;MSI;34
+SP12;HDD 1TB;like new;1 years;Corsair;54
+SP13;HDD 521GB;new;1 years;Acer;23
+SP14;CPU Intel Core I9-10110K;new;3 years;Intel;53
+SP15;Nvidia RTX-3080;new;5 years;Nvidia;12
+SP16;Nvidia GTX-1650TI;new;3 years;Nvidia;65

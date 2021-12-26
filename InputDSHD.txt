@@ -1,0 +1,11 @@
+HD01;Luong Anh Phung;Long Tri, Long My, Hau Giang;01/01/2021;Le Van Vu;SP01;Laptop Acer Nitro 5;1;14.900.000vnd
+HD02;Bui Ba Hong;B16 Song Hanh An PHu, Q2;12/02/2021;Pham Hong;SP05;PC Van Phong HP;1;8.000.000vnd
+HD03;Hoang Trung Chinh;300/43 Nguyen Van Linh, Quan 7;05/03/2021;Nguyen Dinh Van;SP03;Laptop Macbook Pro 2021;1;25.000.000vnd
+HD04;Dang Huynh Thanh Nhan;41/27 Huong Lo 14, Q.TP;07/03/2021;Le Van Vu;SP11;SSD 1TB HVME;3;11.100.000vnd
+HD07;Do Minh Tuan;276 Phan Van Tri, Q.Binh Thanh;14/07/2021;Nguyen Dinh Van;SP06;PC Gia re Dell;1;5.990.000vnd
+HD08;Do Bich Huong;57/65 Tran Binh Trong, P1, Q5;28/07/2021;Nguyen Dinh Van;SP13;HDD 521GB;4;6.700.000vnd
+HD09;Dinh Thi My Thanh;31 Tran Chanh Chieu, P14, Q5;02/08/2021;Le Van Vu;SP16;Nvidia GTX-1650TI;2;12.960.000vnd
+HD10;Dao Trung Thu;A73 Ap 1 Pham Van Hai, H Binh Chanh;10/10/2021;Pham Hong;SP14;CPU Intel Core I9-10110K;3;4.500.000vnd
+HD11;Dang Thi Bich Lieu;246/28 Phan Huy Ich, P12, Q Go Vap;14/10/2021;Pham Hong;SP07;Ram 8GB DDR4;4;5.490.000vnd
+HD99;Tran Nguyen Loc;Nha be q7;19/12/2021;Vo Tran Tan Loc;SP01;Laptop;2;50.000.000vnd
+HD77;Loc;Sai Gon;12/10/2021;Kiet Deo bo;SP09;Laptop;5;5.000.000
