@@ -10,7 +10,11 @@ import java.util.regex.Pattern;
  *
  * @author HP ADMIN
  */
-public class NhanVien {
+abstract class LuongChucVu{
+    abstract void Luong();
+    abstract void ChucVu();
+}
+public class  NhanVien extends LuongChucVu{
     Scanner sc=new Scanner(System.in);
     private int stt;
     static int dem=1;
@@ -212,12 +216,14 @@ public class NhanVien {
     
     public void ChucVu()
     {
-        chucvu="????";
+        chucvu="?????";
     }
+    
     public void Luong()
     {
         luong="????";
     }
+    
     public void xuatNV()
     {
         System.out.printf("%-10s %-10s %-20s %-30s %-15s %-10s %-15s %-20s\n"

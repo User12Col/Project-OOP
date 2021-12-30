@@ -135,7 +135,7 @@ public class Menu {
         {
             System.out.println("============================================");
             System.out.println("WELCOM TO MENU of DANH SACH KHACH HANG");
-            System.out.println("1. Xuat danh sach kahch hang");
+            System.out.println("1. Xuat danh sach khach hang");
             System.out.println("2. Them khach hang");
             System.out.println("3. Xoa khach hang");
             System.out.println("4. Sua thong tin khach hang");
